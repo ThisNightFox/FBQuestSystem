@@ -1,5 +1,5 @@
 # config-version (do not edit)
-config-version: 5
+config-version: 1.0
 
 # Supported values: "en", "de", etc.
 language: "en"
