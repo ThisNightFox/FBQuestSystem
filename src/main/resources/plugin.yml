@@ -1,0 +1,6 @@
+name: FBQuestSystem
+version: '1.0-SNAPSHOT'
+main: de.furubafox.fBQuestSystem.FBQuestSystem
+api-version: '1.20'
+authors: [ FurubaFox ]
+description: Questsystem with some extras
