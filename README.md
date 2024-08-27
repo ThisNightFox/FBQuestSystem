@@ -8,6 +8,6 @@ _[ToTo]_
 
 Permissions - List :
 
-- fb.edit x
-- fg.use x
+- fbquest.edit x
+- fbquest.use x
 - .....
