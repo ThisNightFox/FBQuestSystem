@@ -1,4 +1,10 @@
 # config-version (do not edit)
 config-version: 5
 
-test: true
+# Supported values: "en", "de", etc.
+language: "en"
+
+# Gui Settings
+gui:
+  player:
+    title: "Quest Selection"
