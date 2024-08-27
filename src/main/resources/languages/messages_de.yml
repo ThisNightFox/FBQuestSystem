@@ -1,0 +1,17 @@
+# Das ist die Message Config #
+
+# config-version (Nicht manuell ändern!!!)
+config-version: 1.0
+
+# Prefix
+prefix: '&f[&6FB-&aQuest&8System&f] &8₪ '
+
+messages:
+  console: '%prefix% Du darfst das nicht in der Konsole benutzen'
+  error-code: '%prefix% &cEs wurde ein fehler festgestellt, melde die bitte einem &aAdministrator'
+  no-perms: '%prefix% &4Dafür hast du keine Berechtigung!'
+  player-not-online: '%prefix% &4 Der Spieler ist derzeit nicht online!'
+  player-not-found: '%prefix% &4Der Spieler wurde nicht gefunden, versuche es erneut!'
+  console-only: '%prefix% &cDer Befehl ist nur in der Konsole nutzbar!'
+  invalid-format: '%prefix% &cUngültiges Format!'
+  reload: '%prefix% &aDas Plugin wurde neu geladen!'
