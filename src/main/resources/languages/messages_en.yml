@@ -1,0 +1,17 @@
+# This is the Message Config #
+
+# config-version (Do not change manually!!!)
+config-version: 1.0
+
+# Prefix
+prefix: '&f[&6FB-&aQuest&8System&f] &8₪ '
+
+messages:
+  console: '%prefix% You are not allowed to use this in the console'
+  error-code: '%prefix% &cAn error has been detected, please report this to an &aAdministrator'
+  no-perms: '%prefix% &4You do not have permission for that!'
+  player-not-online: '%prefix% &4The player is currently not online!'
+  player-not-found: '%prefix% &4The player was not found, please try again!'
+  console-only: '%prefix% &cThis command can only be used in the console!'
+  invalid-format: '%prefix% &cInvalid format!'
+  reload: '%prefix% &aThe plugin has been reloaded!'
