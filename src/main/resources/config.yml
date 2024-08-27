@@ -1,5 +1,5 @@
 # config-version (do not edit)
-config-version: 1.0
+config-version: 1.1
 
 # Supported values: "en", "de", etc.
 language: "en"
@@ -8,3 +8,5 @@ language: "en"
 gui:
   player:
     title: "Quest Selection"
+    dailyDisplayName: "Daily Questssssss"
+    dailyLore: "Complete your daily quests here!"
