@@ -8,4 +8,6 @@ softdepend: [PlayerPoints,PlaceholderAPI]
 
 commands:
   fbquest:
-    description: Player Command
+    description: Zeigt die Spieler Quest GUI
+  fbquestadmin:
+    description: Zeigt die Admin Quest GUI
