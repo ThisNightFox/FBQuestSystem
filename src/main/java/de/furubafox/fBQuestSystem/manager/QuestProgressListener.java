@@ -1,8 +1,5 @@
-package de.furubafox.fBQuestSystem.commands.manager;
+package de.furubafox.fBQuestSystem.manager;
 
-import de.furubafox.fBQuestSystem.manager.Quest;
-import de.furubafox.fBQuestSystem.manager.QuestType;
-import de.furubafox.fBQuestSystem.manager.QuestManager;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -11,10 +8,10 @@ import org.bukkit.event.block.BlockBreakEvent;
 
 public class QuestProgressListener implements Listener {
 
-    private final QuestManager questManager;
+    private QuestManager questManager = null;
 
     // Konstruktor zum Initialisieren des QuestManagers
-    public QuestProgressListener(QuestManager questManager) {
+    public QuestProgressListener() {
         this.questManager = questManager;
     }
 

@@ -3,6 +3,7 @@ package de.furubafox.fBQuestSystem;
 import de.furubafox.fBQuestSystem.commands.AdminQuestGui;
 import de.furubafox.fBQuestSystem.commands.PlayerQuestGui;
 import de.furubafox.fBQuestSystem.listeners.GuiClickListener;
+import de.furubafox.fBQuestSystem.manager.QuestProgressListener;
 import de.furubafox.fBQuestSystem.utils.Util;
 import dev.dejvokep.boostedyaml.YamlDocument;
 import dev.dejvokep.boostedyaml.dvs.versioning.BasicVersioning;
@@ -97,6 +98,7 @@ public final class FBQuestSystem extends JavaPlugin implements Listener {
     //Listeners registrieren
     private void loadListener(final PluginManager pluginManager) {
         pluginManager.registerEvents(new GuiClickListener(this.mainConfig, this.messages),this);
+        pluginManager.registerEvents(new QuestProgressListener(),this);
     }
 
     @Override
