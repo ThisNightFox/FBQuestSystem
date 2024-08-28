@@ -1,5 +1,5 @@
 # config-version (do not edit)
-config-version: 1.1
+config-version: 3
 
 # Supported values: "en", "de", etc.
 language: "en"
@@ -7,6 +7,11 @@ language: "en"
 # Gui Settings
 gui:
   player:
+    size: '9'
     title: "Quest Selection"
     dailyDisplayName: "Daily Questssssss"
     dailyLore: "Complete your daily quests here!"
+    weeklyDisplayName: "weeklyyy Questssssss"
+    weeklyLore: "Complete your weekly quests here!"
+    monthlyDisplayName: "monthlyyy Quests"
+    monthlyLore: "Complete your monthly quests here!"

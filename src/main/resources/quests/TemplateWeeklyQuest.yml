@@ -1,0 +1,21 @@
+display: "&fZombie Sammler"
+material: ROTTEN_FLESH
+amount: 1
+category: daily
+description:
+  - " &7&l· &#bcd2eeSammle Zombie-Fleisch &f(&c%progress_collect1%/320&f)"
+  - " &7&l· &#bcd2eeSammle Knochen &f(&c%progress_collect2%/320&f)"
+reward_description:
+  - " &7&l· &#9AFF9APlayer Punkte ×500"
+goals:
+  collect1:
+    type: COLLECT
+    value: ROTTEN_FLESH
+    amount: 320
+  collect2:
+    type: COLLECT
+    value: BONE
+    amount: 320
+reward:
+  run:
+    - 'console_command;points add %player% 500'

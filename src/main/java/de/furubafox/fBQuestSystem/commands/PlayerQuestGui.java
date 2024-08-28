@@ -12,6 +12,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -26,9 +27,9 @@ public class PlayerQuestGui implements CommandExecutor {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender,@NotNull Command command,@NotNull String label,@NotNull String[] args) {
 
-        if (!(sender instanceof Player player)){
+        if (!(sender instanceof Player player)) {
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(messages.getString("messages.console")
                     .replace("%prefix%", messages.getString("prefix")))));
             return true;
@@ -40,41 +41,47 @@ public class PlayerQuestGui implements CommandExecutor {
             return true;
         }
 
-        // GUI-Titel aus der Config laden
-        String title = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(mainConfig.getString("gui.player.title")
-                .replace("%player%", player.getName())));
-
-        // Erstelle das Inventar (GUI) mit einem benutzerdefinierten Holder
-        Inventory questGui = Bukkit.createInventory(new QuestInventoryHolder("playerQuestGui"), 9, title);
-
-        // Füge die Items wie zuvor hinzu
-        ItemStack dailyItem = new ItemBuilder(Material.PAPER)
-                .setDisplayName(ChatColor.GREEN + mainConfig.getString("gui.player.dailyDisplayName"))
-                .setLore(ChatColor.GRAY + mainConfig.getString("gui.player.dailyLore"))
-                .setAmount(1)
-                .setUnbreakable()
-                .setHideEnchantment()
-                .build();
-
-        ItemStack weeklyItem = new ItemBuilder(Material.BOOK)
-                .setDisplayName(ChatColor.BLUE + "Weekly Quests")
-                .setLore(ChatColor.GRAY + "Complete your weekly quests here!")
-                .addEnchantment(org.bukkit.enchantments.Enchantment.DURABILITY, 1)
-                .setHideEnchantment()
-                .build();
-
-        ItemStack monthlyItem = new ItemBuilder(Material.BOOKSHELF)
-                .setDisplayName(ChatColor.GOLD + "Monthly Quests")
-                .setLore(ChatColor.GRAY + "Complete your monthly quests here!")
-                .addItemFlags(org.bukkit.inventory.ItemFlag.HIDE_ATTRIBUTES)
-                .build();
-
-        questGui.setItem(3, dailyItem);
-        questGui.setItem(4, weeklyItem);
-        questGui.setItem(5, monthlyItem);
-
-        player.openInventory(questGui);
+        openQuestSelectionGui(player); //Öffne die GUI
 
         return true;
     }
+
+        public void openQuestSelectionGui(Player player) {
+            // GUI-Titel aus der Config laden
+            String title = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(mainConfig.getString("gui.player.title")
+                    .replace("%player%", player.getName())));
+
+            // Erstelle das Inventar (GUI) mit einem benutzerdefinierten Holder
+            Inventory questGui = Bukkit.createInventory(new QuestInventoryHolder("playerQuestGui"), 9, title);
+
+            // Füge die Items wie zuvor hinzu
+            ItemStack dailyItem = new ItemBuilder(Material.PAPER)
+                    .setDisplayName(ChatColor.GREEN + mainConfig.getString("gui.player.dailyDisplayName"))
+                    .setLore(ChatColor.GRAY + mainConfig.getString("gui.player.dailyLore"))
+                    .setAmount(1)
+                    .setUnbreakable()
+                    .build();
+
+            ItemStack weeklyItem = new ItemBuilder(Material.BOOK)
+                    .setDisplayName(ChatColor.BLUE + mainConfig.getString("gui.player.weeklyDisplayName"))
+                    .setLore(ChatColor.GRAY + mainConfig.getString("gui.player.weeklyLore"))
+                    .addEnchantment(org.bukkit.enchantments.Enchantment.DURABILITY, 1)
+                    .setHideEnchantment()
+                    .build();
+
+            ItemStack monthlyItem = new ItemBuilder(Material.BOOKSHELF)
+                    .setDisplayName(ChatColor.GOLD + mainConfig.getString("gui.player.monthlyDisplayName"))
+                    .setLore(ChatColor.GRAY + mainConfig.getString("gui.player.monthlyLore"))
+                    .addItemFlags(org.bukkit.inventory.ItemFlag.HIDE_ATTRIBUTES)
+                    .build();
+
+            questGui.setItem(3, dailyItem);
+            questGui.setItem(4, weeklyItem);
+            questGui.setItem(5, monthlyItem);
+
+            player.openInventory(questGui);
+
+        }
+
+
 }

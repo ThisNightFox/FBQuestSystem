@@ -1,0 +1,16 @@
+display: "&fHolzfäller"
+material: OAK_LOG
+amount: 1
+category: daily
+description:
+  - " &7&l· &#bcd2eeBaue 640 Eichenholzstämme ab &f(&c%progress_break1%/640&f)"
+reward_description:
+  - " &7&l· &#9AFF9APlayer Punkte ×300"
+questtype:
+  break1:
+    type: BREAK
+    value: OAK_LOG
+    amount: 10
+reward:
+  run:
+    - 'console_command;points add %player% 300'

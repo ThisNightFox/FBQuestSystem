@@ -96,7 +96,7 @@ public final class FBQuestSystem extends JavaPlugin implements Listener {
 
     //Listeners registrieren
     private void loadListener(final PluginManager pluginManager) {
-        pluginManager.registerEvents(new GuiClickListener(),this);
+        pluginManager.registerEvents(new GuiClickListener(this.mainConfig, this.messages),this);
     }
 
     @Override
