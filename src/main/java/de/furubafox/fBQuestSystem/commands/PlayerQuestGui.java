@@ -1,6 +1,6 @@
 package de.furubafox.fBQuestSystem.commands;
 
-import de.furubafox.fBQuestSystem.utils.QuestInventoryHolder;
+import de.furubafox.fBQuestSystem.gui.QuestInventoryHolder;
 import de.furubafox.fBQuestSystem.utils.ItemBuilder;
 import dev.dejvokep.boostedyaml.YamlDocument;
 import org.bukkit.Bukkit;
