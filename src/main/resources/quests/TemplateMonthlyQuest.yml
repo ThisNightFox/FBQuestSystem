@@ -6,7 +6,7 @@ description:
   - " &7&l· &#bcd2eeZüchte 40 Hühner &f(&c%progress_breed1%/40&f)"
 reward_description:
   - " &7&l· &#9AFF9APlayer Punkte ×350"
-goals:
+questtype:
   breed1:
     type: BREED
     value: CHICKEN

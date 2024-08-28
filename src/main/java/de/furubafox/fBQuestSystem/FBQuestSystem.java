@@ -36,6 +36,7 @@ public final class FBQuestSystem extends JavaPlugin implements Listener {
         Logger log = getLogger();
         sendMessage("§aEnabled");
         sendMessage2("Activated");
+        loadfilemessages("All Files loaded correctly");
 
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             /*
@@ -66,6 +67,19 @@ public final class FBQuestSystem extends JavaPlugin implements Listener {
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
+
+        File questFolder = new File(getDataFolder(), "quests");
+        if (!questFolder.exists()) {
+            if (questFolder.mkdirs()) {
+                getLogger().info("quest-Ordner created");
+            } else
+                getLogger().warning("quests folder could not be created.");
+        }
+
+        createDefaultQuestFile("TemplateDailyQuest.yml");
+        createDefaultQuestFile("TemplateWeeklyQuest.yml");
+        createDefaultQuestFile("TemplateMonthlyQuest.yml");
+
         try {
             this.mainConfig = YamlDocument.create(new File(getDataFolder(), "config.yml"),
                     Objects.requireNonNull(getResource("config.yml")),
@@ -119,6 +133,27 @@ public final class FBQuestSystem extends JavaPlugin implements Listener {
         Bukkit.getConsoleSender().sendMessage(ChatColor.GRAY + "§f[§6FB-§aQuest§8System§f] " + ChatColor.BLUE + "Author: " + this.getDescription().getAuthors());
         Bukkit.getConsoleSender().sendMessage(ChatColor.GRAY + "§f[§6FB-§aQuest§8System§f] " + ChatColor.BLUE + "Version: " + this.getDescription().getVersion());
         Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "=====------===== " + prefix + ChatColor.AQUA +"=====------=====");
+    }
+
+    private void loadfilemessages(String filesload) {
+        Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "=====------===== " + prefix + ChatColor.AQUA +"=====------=====");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.GRAY + "§f[§6FB-§aQuest§8System§f] " + ChatColor.BLUE + "Status: " + ChatColor.GREEN + filesload );
+        Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "=====------===== " + prefix + ChatColor.AQUA +"=====------=====");
+    }
+
+    private void createDefaultQuestFile(String fileName) {
+        File file = new File(getDataFolder(), "quests/" + fileName);
+        if (!file.exists()) {
+            try {
+                if (file.createNewFile()) {
+                    getLogger().info(fileName + "was created.");
+                }else {
+                    getLogger().warning(fileName + "could not be created.");
+            }
+        } catch (IOException e) {
+            getLogger().warning("Error when creating the file" + fileName + ":" + e.getMessage());
+        }
+    }
     }
 
     public static FBQuestSystem getInstance() {
